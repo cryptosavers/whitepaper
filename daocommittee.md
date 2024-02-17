@@ -1,3 +1,19 @@
+
+| **Committee**                    | **Functions**                                                                                                                     |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| **Governance Committee**         | Oversees the DAO's governance framework, proposing and reviewing policies that affect decision-making processes and member rights. |
+| **Technical Development Committee** | Guides the technical strategy, including software development, blockchain integration, and technological innovation.               |
+| **Finance and Treasury Committee** | Manages financial assets, including treasury operations and financial planning, to ensure stability and resource allocation.      |
+| **Security and Compliance Committee** | Focuses on the security of digital assets and compliance with laws and regulations, including smart contract audits.              |
+| **Ecosystem Development Committee** | Dedicated to fostering growth and development within the DAO's ecosystem, including partnerships and community engagement.        |
+| **Research and Innovation Committee** | Identifies new opportunities and technologies for the DAO, encouraging innovation and the adoption of emerging technologies.      |
+| **Membership and Inclusion Committee** | Works to grow and diversify the DAO's membership base, ensuring an inclusive environment and focusing on member onboarding.       |
+| **Dispute Resolution and Ethics Committee** | Handles disputes within the community and oversees ethical conduct, ensuring fairness and integrity.                             |
+| **Sustainability and Impact Committee** | Focuses on initiatives that contribute to sustainability and positive social impact, leveraging technology for good.              |
+| **Education and Outreach Committee** | Organizes educational programs and outreach to engage with broader communities, promoting learning about DAOs and blockchain.     |
+
+This table encapsulates the roles and objectives of each committee within the Cryptosavers Club DAO, highlighting the organization's comprehensive approach to governance, development, and community engagement.
+
 **LIST OF COMMITTEES**
 
 1. **Governance Committee**: Oversees the DAO's governance framework, proposing and reviewing policies that affect decision-making processes, member rights, and the overall governance model.
