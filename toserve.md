@@ -65,3 +65,26 @@ We reserve the right, at our sole discretion, to modify or replace these Terms a
 
 ---
 
+
+---
+
+### Disclaimer for Cryptosavers Club Platform
+
+Welcome to the Cryptosavers Club Platform. As an innovative platform designed to provide our members with cutting-edge tools and insights in the cryptocurrency landscape, we prioritize transparency and informed decision-making.
+
+**Acknowledgment of Risks and Rewards:** By using the Cryptosavers Club Platform, you acknowledge the inherently volatile and unpredictable nature of the cryptocurrency market. While the platform aims to empower your cryptocurrency journey with valuable information and resources, we emphasize that the crypto sector is marked by rapid changes and carries inherent risks along with its potential rewards.
+
+**No Guarantees or Assurances:** We wish to remind our members that there are no guarantees or assurances regarding the performance of the Cryptosavers Club Platform. The platform is provided on a self-service basis, and its effectiveness depends on the ever-changing dynamics of the cryptocurrency market. Any forward-looking statements made by the platform or its representatives are speculative in nature and should be viewed as such.
+
+**Responsibility for Misrepresentation:** As part of our commitment to maintaining a transparent and trustworthy environment, any member misrepresenting the platform or providing assurances, guarantees, and specific outcomes that could be misconstrued to guarantee an expectation of profit must be reported immediately. Such actions undermine the integrity of our community and the purpose of the platform. Members are urged to report any instances of misrepresentation to ensure that the platform remains a reliable resource for all.
+
+**Acceptance of Terms:** As a member of the Cryptosavers Club Platform, you agree to thoroughly understand and accept the terms of use, including the acknowledgment of all risks associated with cryptocurrency trading and investment. You affirm that the decisions made using the platform are your own responsibility, and the platform, along with its developers, cannot be held accountable for the outcomes of such decisions.
+
+**Decision-Making Responsibility:** It is imperative to highlight that all decisions made through the use of the Cryptosavers Club Platform are solely the member's responsibility. The platform is designed to assist in your decision-making process, not to serve as a substitute for personal judgment or professional advice.
+
+By continuing to use the Cryptosavers Club Platform, you confirm that you have read, understood, and agreed to this disclaimer. You accept that your use of the platform is at your own risk, and you will not hold the platform or its affiliates responsible for any decisions, outcomes, or losses that may arise from your engagement with the cryptocurrency market.
+
+Welcome to a journey of innovation and exploration in the cryptocurrency world with the Cryptosavers Club Platform.
+
+---
+
