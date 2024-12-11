@@ -150,4 +150,119 @@ contract ConvertCSCS is Ownable {
      * @dev Partners deposit USDT for liquidity to earn CSCS fees.
      * @param amount Amount of USDT to deposit.
      */
-    
+    function depositUSDTForFees(uint256 amount) external {
+        require(amount > 0, "Amount must be greater than 0");
+        USDT.safeTransferFrom(msg.sender, address(this), amount);
+
+        uint256 sharesToMint;
+        if (totalUSDTShares == 0) {
+            // First deposit sets the baseline
+            sharesToMint = amount;
+        } else {
+            // Subsequent deposits maintain the ratio
+            uint256 usdtBalance = USDT.balanceOf(address(this));
+            // sharesToMint = (amount / total USDT in pool) * totalUSDTShares
+            // To get total USDT in pool for fees: usdtBalance includes partner liquidity + user-conversion liquidity
+            // We assume all USDT in contract is available liquidity. This is a simplification.
+            sharesToMint = (amount * totalUSDTShares) / (usdtBalance - amount);
+        }
+
+        usdtShares[msg.sender] += sharesToMint;
+        totalUSDTShares += sharesToMint;
+
+        emit USDTDeposited(msg.sender, amount, sharesToMint);
+    }
+
+    /**
+     * @dev Partners deposit USDC for liquidity to earn CSCS fees.
+     * @param amount Amount of USDC to deposit.
+     */
+    function depositUSDCForFees(uint256 amount) external {
+        require(amount > 0, "Amount must be greater than 0");
+        USDC.safeTransferFrom(msg.sender, address(this), amount);
+
+        uint256 sharesToMint;
+        if (totalUSDCShares == 0) {
+            // First deposit sets the baseline
+            sharesToMint = amount;
+        } else {
+            uint256 usdcBalance = USDC.balanceOf(address(this));
+            sharesToMint = (amount * totalUSDCShares) / (usdcBalance - amount);
+        }
+
+        usdcShares[msg.sender] += sharesToMint;
+        totalUSDCShares += sharesToMint;
+
+        emit USDCDeposited(msg.sender, amount, sharesToMint);
+    }
+
+    /**
+     * @dev Claim CSCS fees earned by providing USDT liquidity.
+     */
+    function claimUSDTFees() external {
+        require(usdtShares[msg.sender] > 0, "No USDT shares");
+        uint256 totalShares = totalUSDTShares;
+        require(totalShares > 0, "No USDT shares in pool");
+
+        // Calculate user's total entitlement
+        uint256 userEntitlement = (cscsFeesForUSDT * usdtShares[msg.sender]) / totalShares;
+
+        // Calculate how much user has not yet claimed
+        uint256 claimable = userEntitlement - claimedUSDTFees[msg.sender];
+        require(claimable > 0, "No claimable fees");
+
+        claimedUSDTFees[msg.sender] += claimable;
+        CSCS.safeTransfer(msg.sender, claimable);
+
+        emit USDTFeesClaimed(msg.sender, claimable);
+    }
+
+    /**
+     * @dev Claim CSCS fees earned by providing USDC liquidity.
+     */
+    function claimUSDCFees() external {
+        require(usdcShares[msg.sender] > 0, "No USDC shares");
+        uint256 totalShares = totalUSDCShares;
+        require(totalShares > 0, "No USDC shares in pool");
+
+        // Calculate user's total entitlement
+        uint256 userEntitlement = (cscsFeesForUSDC * usdcShares[msg.sender]) / totalShares;
+
+        // Calculate how much user has not yet claimed
+        uint256 claimable = userEntitlement - claimedUSDCFees[msg.sender];
+        require(claimable > 0, "No claimable fees");
+
+        claimedUSDCFees[msg.sender] += claimable;
+        CSCS.safeTransfer(msg.sender, claimable);
+
+        emit USDCFeesClaimed(msg.sender, claimable);
+    }
+
+    // --- Owner Withdraw Functions (for emergency or adjustments) ---
+    /**
+     * @dev Owner can withdraw USDT (not the fees, but the liquidity).
+     * This might be restricted in a real scenario to not harm liquidity providers.
+     * Use with caution.
+     */
+    function withdrawUSDT(uint256 amount) external onlyOwner {
+        require(USDT.balanceOf(address(this)) >= amount, "Insufficient USDT balance");
+        USDT.safeTransfer(msg.sender, amount);
+    }
+
+    /**
+     * @dev Owner can withdraw USDC.
+     * Same caution as above.
+     */
+    function withdrawUSDC(uint256 amount) external onlyOwner {
+        require(USDC.balanceOf(address(this)) >= amount, "Insufficient USDC balance");
+        USDC.safeTransfer(msg.sender, amount);
+    }
+
+    /**
+     * @dev Owner can withdraw CSCS tokens from the contract.
+     */
+    function withdrawCSCS(uint256 amount) external onlyOwner {
+        require(CSCS.balanceOf(address(this)) >= amount, "Insufficient CSCS balance");
+        CSCS.safeTransfer(msg.sender, amount);
+    }
+}
