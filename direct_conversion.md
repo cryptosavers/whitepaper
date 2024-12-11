@@ -1,4 +1,4 @@
-#High-Level Summary
+# High-Level Summary
 
 This smart contract allows users to convert their CSCS tokens into stablecoins (USDT or USDC) under certain conditions. A small fee is taken in CSCS tokens during each conversion. People called “liquidity partners” can deposit USDT or USDC into the contract to provide the stablecoins that users receive. In return, these liquidity partners earn the CSCS fees collected from the conversions, distributed according to how much stablecoin they contributed.
 
