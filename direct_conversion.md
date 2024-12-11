@@ -56,3 +56,32 @@ In plain English:
 4. Liquidity partners can withdraw their share of these CSCS fees based on how much they contributed to the pool.
 
 This creates a cycle where liquidity partners provide stablecoins for user conversions, and in return, they share the CSCS fees generated from those conversions.
+
+This smart contract lets people swap their CSCS tokens for stablecoins (USDT or USDC) under certain conditions, while also allowing others (called liquidity partners) to put in those stablecoins so that swaps are always possible.
+
+**How it Works in Simple Terms:**
+
+1. **For Users (Who Want to Swap CSCS):**  
+   - You must have passed KYC, held a membership for at least 180 days, set an active goal, and own at least 50,000 CSCS tokens.
+   - The contract checks the price of CSCS from a trusted source (Chainlink). If the price is $0.80 or higher, you can swap.
+   - When you swap, you give the contract CSCS, and it gives you back either USDT or USDC.
+   - It takes a small 0.3% fee in CSCS tokens on each swap.
+
+2. **For Liquidity Partners (Who Provide USDT or USDC):**  
+   - You can deposit USDT or USDC into the contract. In return, you get "shares" representing your part of the pool.
+   - When other users swap CSCS for your stablecoins, they pay a 0.3% CSCS fee. Those fees pile up in the contract.
+   - Over time, you can claim your portion of the CSCS fees, based on how many shares you hold.
+   - If you ever want to take your stablecoins back, you can "redeem" your shares and the contract will return your share of the pool’s stablecoins.
+
+**What’s New and Improved:**
+
+- The contract now makes sure the price data it uses is fresh and reliable. If the data is too old, it won’t let you swap.
+- It has added safety measures to prevent sneaky tricks (known as "reentrancy attacks").
+- Liquidity partners can now easily get their stablecoins back, instead of having their funds stuck in the contract.
+
+**In Other Words:**
+
+- **Users**: You can reliably turn your CSCS into stablecoins if you meet the membership and verification requirements, and if the price is right.
+- **Partners**: You invest stablecoins into the system and earn CSCS fees from every conversion that uses your provided liquidity. You can also get your money back anytime you want.
+
+This setup aims to create a fair and secure environment where people can trade CSCS for stablecoins while others can earn fees by providing those stablecoins.
